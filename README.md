@@ -24,4 +24,5 @@
 - H2 para banco test
 
 ### Para poder executar a aplicação será necessário configurar as variáveis de ambiente
-[Boot Dashbord](##https://vidadedev.com/dicas-tutoriais/como-pegar-variavel-de-ambiente-com-spring-boot/)
+:orange_book:[Boot Dashbord](https://vidadedev.com/dicas-tutoriais/como-pegar-variavel-de-ambiente-com-spring-boot/)
+:orange_book:[Curso base para o app Instrutor Nelio Alves](https://www.udemy.com/course/spring-boot-ionic/learn/lecture/8256778#overview) 
