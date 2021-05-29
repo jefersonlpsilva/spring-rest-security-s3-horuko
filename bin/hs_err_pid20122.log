@@ -1,0 +1,61 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f1215e20f55, pid=20122, tid=23115
+#
+# JRE version: OpenJDK Runtime Environment (15.0.2+7) (build 15.0.2+7-27)
+# Java VM: OpenJDK 64-Bit Server VM (15.0.2+7-27, mixed mode, tiered, compressed oops, g1 gc, linux-amd64)
+# Problematic frame:
+# J 1040 c1 java.nio.DirectIntBufferU.get(I)I java.base@15.0.2 (33 bytes) @ 0x00007f1215e20f55 [0x00007f1215e20ec0+0x0000000000000095]
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/share/apport/apport %p %s %c %d %P %E" (or dumping to /home/marven/Documents/abc/RestBase/core.20122)
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -XX:+ShowCodeDetailsInExceptionMessages -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:43785 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=38463 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=localhost -Dspring.jmx.enabled=true -Dspring.application.admin.enabled=true -Djava.security.egd=file:/dev/./urandom -XX:TieredStopAtLevel=1 -Dspring.boot.project.name=RestBase -javaagent:/home/marven/Documents/sts-4.10.0.RELEASE/configuration/org.eclipse.osgi/248/0/.cp/lib/javaagent-shaded.jar -Dfile.encoding=UTF-8 app.dinamismo.restBase.RestBaseApplication --spring.output.ansi.enabled=always
+
+Host: Intel(R) Core(TM) i5-4210U CPU @ 1.70GHz, 4 cores, 7G, Ubuntu 16.04.7 LTS
+Time: Thu Apr 29 23:46:28 2021 -03 elapsed time: 5272.087931 seconds (0d 1h 27m 52s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f11ac014c40):  JavaThread "restartedMain" [_thread_in_Java, id=23115, stack(0x00007f12010f1000,0x00007f12011f2000)]
+
+Stack: [0x00007f12010f1000,0x00007f12011f2000],  sp=0x00007f12011ee780,  free space=1013k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+J 1040 c1 java.nio.DirectIntBufferU.get(I)I java.base@15.0.2 (33 bytes) @ 0x00007f1215e20f55 [0x00007f1215e20ec0+0x0000000000000095]
+J 1047 c1 jdk.internal.jimage.BasicImageReader.findLocation(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/jimage/ImageLocation; java.base@15.0.2 (115 bytes) @ 0x00007f1215e25604 [0x00007f1215e254c0+0x0000000000000144]
+J 1059 c1 jdk.internal.module.SystemModuleFinders$SystemModuleReader.findImageLocation(Ljava/lang/String;)Ljdk/internal/jimage/ImageLocation; java.base@15.0.2 (42 bytes) @ 0x00007f1215e27294 [0x00007f1215e27200+0x0000000000000094]
+J 1060 c1 jdk.internal.module.SystemModuleFinders$SystemModuleReader.find(Ljava/lang/String;)Ljava/util/Optional; java.base@15.0.2 (54 bytes) @ 0x00007f1215e27ab4 [0x00007f1215e27a60+0x0000000000000054]
+J 2087 c1 jdk.internal.loader.BuiltinClassLoader$2.run()Ljava/util/List; java.base@15.0.2 (114 bytes) @ 0x00007f1215fd30b4 [0x00007f1215fd2fa0+0x0000000000000114]
+J 2484 c1 jdk.internal.loader.BuiltinClassLoader.findMiscResource(Ljava/lang/String;)Ljava/util/List; java.base@15.0.2 (122 bytes) @ 0x00007f12160931f4 [0x00007f1216092e00+0x00000000000003f4]
+J 2531 c1 jdk.internal.loader.BuiltinClassLoader.findResource(Ljava/lang/String;)Ljava/net/URL; java.base@15.0.2 (154 bytes) @ 0x00007f12160a7724 [0x00007f12160a7560+0x00000000000001c4]
+J 2623 c1 java.lang.ClassLoader.getResource(Ljava/lang/String;)Ljava/net/URL; java.base@15.0.2 (41 bytes) @ 0x00007f12160d326c [0x00007f12160d31e0+0x000000000000008c]
+J 2623 c1 java.lang.ClassLoader.getResource(Ljava/lang/String;)Ljava/net/URL; java.base@15.0.2 (41 bytes) @ 0x00007f12160d324c [0x00007f12160d31e0+0x000000000000006c]
+J 3809 c1 org.springframework.boot.devtools.restart.classloader.RestartClassLoader.getResource(Ljava/lang/String;)Ljava/net/URL; (48 bytes) @ 0x00007f12162f4984 [0x00007f12162f4700+0x0000000000000284]
+j  java.net.URLClassLoader.getResourceAsStream(Ljava/lang/String;)Ljava/io/InputStream;+7 java.base@15.0.2
+j  org.springframework.core.io.ClassPathResource.getInputStream()Ljava/io/InputStream;+37
+j  org.springframework.core.type.classreading.SimpleMetadataReader.getClassReader(Lorg/springframework/core/io/Resource;)Lorg/springframework/asm/ClassReader;+1
+j  org.springframework.core.type.classreading.SimpleMetadataReader.<init>(Lorg/springframework/core/io/Resource;Ljava/lang/ClassLoader;)V+14
+J 2706 c1 org.springframework.boot.type.classreading.ConcurrentReferenceCachingMetadataReaderFactory.getMetadataReader(Lorg/springframework/core/io/Resource;)Lorg/springframework/core/type/classreading/MetadataReader; (38 bytes) @ 0x00007f12160f2d0c [0x00007f12160f2be0+0x000000000000012c]
+J 2617 c1 org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(Ljava/lang/String;)Lorg/springframework/core/type/classreading/MetadataReader; (156 bytes) @ 0x00007f12160ccb7c [0x00007f12160cc900+0x000000000000027c]
+J 2620 c1 org.springframework.context.annotation.ConfigurationClassParser.asSourceClass(Ljava/lang/String;Ljava/util/function/Predicate;)Lorg/springframework/context/annotation/ConfigurationClassParser$SourceClass; (103 bytes) @ 0x00007f12160d0fac [0x00007f12160d0b80+0x000000000000042c]
+J 2705 c1 org.springframework.context.annotation.ConfigurationClassParser$SourceClass.getRelated(Ljava/lang/String;)Lorg/springframework/context/annotation/ConfigurationClassParser$SourceClass; (117 bytes) @ 0x00007f12160f1fec [0x00007f12160f1a20+0x00000000000005cc]
+j  org.springframework.context.annotation.ConfigurationClassParser$SourceClass.getAnnotations()Ljava/util/Set;+152
+J 2710 c1 org.springframework.context.annotation.ConfigurationClassParser.collectImports(Lorg/springframework/context/annotation/ConfigurationClassParser$SourceClass;Ljava/util/Set;Ljava/util/Set;)V (98 bytes) @ 0x00007f12160f46bc [0x00007f12160f4640+0x000000000000007c]
+j  org.springframework.context.annotation.ConfigurationClassParser.getImports(Lorg/springframework/context/annotation/ConfigurationClassParser$SourceClass;)Ljava/util/Set;+20
+j  org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(Lorg/springframework/context/annotation/ConfigurationClass;Lorg/springframework/context/annotation/ConfigurationClassParser$SourceClass;Ljava/util/function/Predicate;)Lorg/springframework/context/annotation/ConfigurationClassParser$SourceClass;+312
+j  org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(Lorg/springframework/context/annotation/ConfigurationClass;Ljava/util/function/Predicate;)V+106
+j  org.springframework.context.annotation.ConfigurationClassParser.parse(Ljava/lang/String;Ljava/lang/String;)V+30
+j  org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(Lorg/springframework/context/annotation/ConfigurationClass;Lorg/springframework/context/annotation/ConfigurationClassParser$SourceClass;Ljava/util/function/Predicate;)Lorg/springframework/context/annotation/ConfigurationClassParser$SourceClass;+298
+j  org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(Lorg/springframework/context/annotation/ConfigurationClass;Ljava/util/function/Predicate;)V+106
+j  org.springframework.context.annotation.ConfigurationClassParser.parse(Lorg/springframework/core/type/AnnotationMetadata;Ljava/lang/String;)V+13
+j  org.springframework.context.annotation.ConfigurationClassParser.parse(Ljava/util/Set;)V+55
+j  org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(Lorg/springframework/beans/factory/support/BeanDefinitionRegistry;)V+308
+j  org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(Lorg/springframework/beans/factory/support/BeanDefinitionRegistry;)V+107
+j  org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(Ljava/util/Collection;Lorg/springframework/beans/factory/support/BeanDefinitionRegistry;Lorg/springframework/core/metrics/ApplicationStartup;)V+59
+j  org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(Lorg/springframework/beans/factory/config/ConfigurableListableBeanFactory;Ljava/util/List;)V+235
